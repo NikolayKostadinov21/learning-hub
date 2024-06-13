@@ -12,16 +12,20 @@ fn check_within_budget(votes: [u32; CANDIDATE_COUNT], token_budget: u32) {
 	};
 
 	// Check we haven't used more tokens than allowed
-	constain tokens_spent <= token_budget;
+	assert (tokens_spent <= token_budget, "You are attempting to use more tokens than the allowed!");
 }
 
-fn main(x: Field, y: pub Field) {
-    assert(x != y);
+fn main(
+	token_budget: pub u32,
+	votes: [u32; CANDIDATE_COUNT],
+) {
+    	// Enforce QV rules
+	check_within_budget(votes, token_budget);
 }
 
 #[test]
 fn test_main() {
-    main(1, 2);
+    // main(1, 2);
 
     // Uncomment to make test fail
     // main(1, 1);
