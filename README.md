@@ -1,1 +1,1 @@
-# learning-solana
+# learning-hub
