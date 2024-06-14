@@ -1,0 +1,8 @@
+[package]
+name = "zksummit_10"
+type = "bin"
+authors = [""]
+compiler_version = ">=0.30.0"
+
+[dependencies]
+ecrecover = {tag = "v0.10.0", git = "https://github.com/colinnielsen/ecrecover-noir.git"}
