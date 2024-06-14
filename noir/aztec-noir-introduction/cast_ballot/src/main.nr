@@ -38,7 +38,7 @@ fn main(
 	token_budget: pub u32,
     // The votes for each candidate (identified by index)
     votes: [u32; CANDIDATE_COUNT],
-) -> Field {
+) -> pub Field {
 	// Enforce QV rules
 	check_within_budget(votes, token_budget);
 	// Reveal the commitment

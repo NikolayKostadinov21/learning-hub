@@ -1,4 +1,4 @@
-use deps::std;
+use dep::std;
 
 global CANDIDATE_COUNT = 10;
 global VOTER_COUNT = 2;
@@ -15,9 +15,9 @@ fn check_commitments(
         transcript[0] = secrets[i];
 		for j in 0..CANDIDATE_COUNT {
 			// Pedersen expects a transscript of Field elements, hence the cast
-			transcript[j + 1] = all_votes[i * CANDIDATE_COUNT + j];
+			transcript[j + 1] = all_votes[i * CANDIDATE_COUNT + j] as Field;
 		};
-		assert (commitment[i] == std::hash::pedersen_hash(transcript));
+		assert (commitments[i] == std::hash::pedersen_hash(transcript));
 	};
 }
 
