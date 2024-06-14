@@ -1,0 +1,7 @@
+[package]
+name = "zksummit_10_keccak256"
+type = "bin"
+authors = [""]
+compiler_version = "0.10.1"
+
+[dependencies]
