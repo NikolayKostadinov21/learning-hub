@@ -1,3 +1,4 @@
+use dep::std;
 global VOTER_COUNT = 2;
 global CANDIDATE_COUNT = 10;
 fn check_commitments(
@@ -7,11 +8,11 @@ fn check_commitments(
 ){
 	for i in 0..VOTER_COUNT {
 		let mut transcript = [0; CANDIDATE_COUNT + 1];
-		transcript[0] = secrets[i]
+		transcript[0] = secrets[i];
 		for j in 0..CANDIDATE_COUNT {
 			transcript[j + 1] = all_votes[i * CANDIDATE_COUNT + j] as Field;
-		}
-	assert(commitments[i] == std::hash::pedersen(transcript)[0]);
+		};
+	assert(commitments[i] == std::hash::pedersen_hash(transcript));
 	};
 }
 
